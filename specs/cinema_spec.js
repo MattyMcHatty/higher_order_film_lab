@@ -41,7 +41,7 @@ describe('Cinema', function () {
   });
 
   it('should be able to filter films by genre', function(){
-    const actual = cinema.filmsByGenre('drama');
+    const actual = cinema.filmsByProperty('genre','drama');
     const expected = [moonlight, trainspotting];
     assert.deepStrictEqual(actual, expected);
   });
@@ -72,5 +72,11 @@ describe('Cinema', function () {
     const expected = 622;
     assert.deepStrictEqual(actual, expected);
   });
+
+  it('Cinema should be able to filter films by year', function(){
+    const actual = cinema.filmsByProperty('year', 2017);
+    const expected = [bladeRunner, dunkirk, trainspotting];
+    assert.deepStrictEqual(actual, expected);
+  })
 
 });
