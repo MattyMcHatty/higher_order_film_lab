@@ -21,6 +21,18 @@ Cinema.prototype.filmsFromYear = function(year){
   return result = this.films.some((film)=>{return year == film.year})
 }
 
+Cinema.prototype.allFilmsOverLength = function(length){
+  return result = this.films.every((film)=>{return length < film.length})
+}
+
+Cinema.prototype.totalRunningTime = function(){
+  runningTimes=[]
+  this.films.forEach((film)=>{runningTimes.push(film.length)})
+  return runningTimes.reduce((runningTotal, number)=>{
+    return runningTotal += number
+  })
+  
+}
 
 
 module.exports = Cinema;
