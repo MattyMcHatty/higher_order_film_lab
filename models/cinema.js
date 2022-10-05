@@ -9,16 +9,16 @@ Cinema.prototype.filmTitles = function(){
 }
 
 Cinema.prototype.findFilmByTitle = function(film_title){
-  return result = this.films.filter((film)=>{return film_title == film.title})
+  return result = this.films.find((film)=>{return film_title === film.title})
 
 }
 
 // Cinema.prototype.filmsByGenre = function(genre){
-//   return result = this.films.filter((film)=>{return genre == film.genre})
+//   return result = this.films.filter((film)=>{return genre === film.genre})
 // }
 
 Cinema.prototype.filmsFromYear = function(year){
-  return result = this.films.some((film)=>{return year == film.year})
+  return result = this.films.some((film)=>{return year === film.year})
 }
 
 Cinema.prototype.allFilmsOverLength = function(length){
@@ -26,15 +26,13 @@ Cinema.prototype.allFilmsOverLength = function(length){
 }
 
 Cinema.prototype.totalRunningTime = function(){
-  runningTimes=[]
-  this.films.forEach((film)=>{runningTimes.push(film.length)})
-  return runningTimes.reduce((runningTotal, number)=>{
-    return runningTotal += number
-  }) 
+  return this.films.reduce((total, film)=>{
+    return total + film.length
+  }, 0) 
 }
 
 Cinema.prototype.filmsByProperty = function(property, value){
-  return result = this.films.filter((film)=>{return film[property] == value})
+  return result = this.films.filter((film)=>{return film[property] === value})
 }
 
 
